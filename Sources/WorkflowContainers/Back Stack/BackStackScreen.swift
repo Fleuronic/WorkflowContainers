@@ -9,8 +9,8 @@ public extension BackStack {
 	struct Screen<ScreenType: WorkflowUI.Screen> {
 		let items: [Item]
 
-		public init(items: [Item]) {
-			self.items = items
+		public init(items: [Item?]) {
+			self.items = items.compactMap { $0 }
 		}
 	}
 }
