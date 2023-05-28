@@ -44,7 +44,9 @@ public extension BackStack {
 				}
 			}
 
-			controller.setViewControllers(updatedViewControllers, animated: true)
+            if controller.viewControllers != updatedViewControllers {
+                controller.setViewControllers(updatedViewControllers, animated: true)
+            }
 		}
 	}
 }
