@@ -3,7 +3,7 @@
 import UIKit
 
 public extension Bar.ButtonItem {
-	enum Content {
+    enum Content: Equatable {
 		case text(String)
 		case icon(UIImage)
 		case spinner
