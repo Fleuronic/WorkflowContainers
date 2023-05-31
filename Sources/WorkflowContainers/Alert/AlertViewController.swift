@@ -37,12 +37,12 @@ extension Alert {
 
 			if let alert = screen.alert {
 				guard alertController == nil else { return }
-				let alertController = UIAlertController(alert)
+                let alertController = UIAlertController(alert) { [weak self] in
+                    self?.alertController = nil
+                }
+                
 				baseScreenViewController.present(alertController, animated: true)
 				self.alertController = alertController
-			} else  {
-				baseScreenViewController.dismiss(animated: true)
-				alertController = nil
 			}
 		}
 
@@ -70,7 +70,7 @@ extension Alert {
 
 // MARK: -
 private extension UIAlertController {
-	convenience init(_ alert: Alert) {
+    convenience init(_ alert: Alert, dismissHandler: @escaping () -> Void) {
 		self.init(
 			title: alert.title,
 			message: alert.message,
@@ -78,19 +78,17 @@ private extension UIAlertController {
 		)
 
 		alert.actions
-			.map(UIAlertAction.init)
+            .map { action in
+                UIAlertAction(
+                    title: action.title,
+                    style: .init(action.style),
+                    handler: { _ in
+                        action.handler()
+                        dismissHandler()
+                    }
+                )
+            }
 			.forEach(addAction)
-	}
-}
-
-// MARK: -
-private extension UIAlertAction {
-	convenience init(_ alertAction: Alert.Action) {
-		self.init(
-			title: alertAction.title,
-			style: .init(alertAction.style),
-			handler: { _ in alertAction.handler() }
-		)
 	}
 }
 
