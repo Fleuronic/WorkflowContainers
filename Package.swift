@@ -1,10 +1,10 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
     name: "WorkflowContainers",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v16)
     ],
     products: [
         .library(
@@ -15,7 +15,7 @@ let package = Package(
 		)
     ],
     dependencies: [
-		.package(url: "https://github.com/square/workflow-swift", from: "1.0.0-rc.1")
+		.package(url: "https://github.com/square/workflow-swift", branch: "tomb/swiftui-2023")
 	],
     targets: [
         .target(
