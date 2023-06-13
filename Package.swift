@@ -15,7 +15,7 @@ let package = Package(
 		)
     ],
     dependencies: [
-		.package(url: "https://github.com/square/workflow-swift", branch: "tomb/swiftui-2023")
+		.package(url: "https://github.com/Fleuronic/workflow-swift", branch: "main")
 	],
     targets: [
         .target(
