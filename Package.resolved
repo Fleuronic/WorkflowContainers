@@ -10,21 +10,12 @@
       }
     },
     {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift.git",
-      "state" : {
-        "revision" : "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
-        "version" : "6.6.0"
-      }
-    },
-    {
       "identity" : "workflow-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/square/workflow-swift",
+      "location" : "https://github.com/Fleuronic/workflow-swift",
       "state" : {
-        "branch" : "tomb/swiftui-2023",
-        "revision" : "94afbabecf42548c250d0df26c0dc8df13e161c3"
+        "branch" : "main",
+        "revision" : "1bb353fd8d9af0a3a853a1518c542d00cc3e3ca4"
       }
     }
   ],
